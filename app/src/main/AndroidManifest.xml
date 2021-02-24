@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lotto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,7 +14,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lotto">
+        android:theme="@style/Theme.Lotto"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true">
+
+
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="android:screenOrientation"
+            android:stateNotNeeded="true">
+        </activity>
+
+        <activity android:name=".HandNumActive"/>
+        <activity android:name=".AutoNumActive"/>
+        <activity android:name=".MyNumActive"/>
+        <activity android:name=".NearMapActive"/>
+        <activity android:name=".CreateNumActive"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

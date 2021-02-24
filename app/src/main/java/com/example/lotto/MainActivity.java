@@ -1,9 +1,11 @@
 package com.example.lotto;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -11,10 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,16 +70,56 @@ public class MainActivity extends AppCompatActivity {
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(true);
 
-        btnQr.setOnClickListener(new View.OnClickListener() {
+        btnQr.setOnClickListener(v -> integrator.initiateScan());
+        btnCreateNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                integrator.initiateScan();
+                Intent createNum  = new Intent(getApplicationContext(), CreateNumActive.class);
+                startActivity(createNum);
+            }
+        });
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nearMap  = new Intent(getApplicationContext(), NearMapActive.class);
+                startActivity(nearMap);
+            }
+        });
+        btnMyNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myNum  = new Intent(getApplicationContext(), MyNumActive.class);
+                startActivity(myNum);
             }
         });
 
         CountTask count = new CountTask();
         count.execute();
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+
+            } else { //qr코드를 읽어서 EditText에 입력해줍니다.
+                String address = result.getContents().toString();
+                if(!address.startsWith("http://")){
+                    address = "http://" + address;
+                }
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                Uri u = Uri.parse(address);
+                i.setData(u);
+                startActivity(i);
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 
     class CountTask extends AsyncTask<Integer, Integer, Void> {
         @Override
@@ -95,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
                 textDate.setText(jsonObject.get("drwNoDate").toString());
                 String num = jsonObject.get("drwtNo1").toString() + "," + jsonObject.get("drwtNo2").toString() + "," + jsonObject.get("drwtNo3").toString()
-                        + "," + jsonObject.get("drwtNo4").toString()+ "," + jsonObject.get("drwtNo5").toString()+ "," + jsonObject.get("drwtNo6").toString()
+                        + "," + jsonObject.get("drwtNo4").toString() + "," + jsonObject.get("drwtNo5").toString() + "," + jsonObject.get("drwtNo6").toString()
                         + "+" + jsonObject.get("bnusNo").toString();
 
                 textNum.setText(num);
@@ -104,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
-            }catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
