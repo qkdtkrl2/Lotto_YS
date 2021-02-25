@@ -13,12 +13,13 @@
         tools:layout_editor_absoluteY="2dp">
 
         <EditText
-            android:id="@+id/editTextTextMultiLine2"
+            android:id="@+id/editTboxAutoNum"
             android:layout_width="match_parent"
             android:layout_height="614dp"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:enabled="false"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btnAutoCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
@@ -34,7 +35,7 @@
                 android:layout_margin="20dp"/>
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btnAutoSave"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
