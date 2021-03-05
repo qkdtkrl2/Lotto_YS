@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     IntentIntegrator integrator;
 
+    SQLiteDatabase sqlDB;
+    myDBHelper myDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,11 +74,17 @@ public class MainActivity extends AppCompatActivity {
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(true);
 
+        myDBHelper = new myDBHelper(this);
+        sqlDB = myDBHelper.getWritableDatabase();
+        myDBHelper.onCreate(sqlDB);
+        sqlDB.close();
+
         btnQr.setOnClickListener(v -> integrator.initiateScan());
         btnCreateNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent createNum  = new Intent(getApplicationContext(), CreateNumActive.class);
+
                 startActivity(createNum);
             }
         });

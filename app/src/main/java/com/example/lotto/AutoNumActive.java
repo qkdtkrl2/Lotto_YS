@@ -1,9 +1,12 @@
 package com.example.lotto;
 
+import android.annotation.SuppressLint;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +20,10 @@ public class AutoNumActive extends AppCompatActivity {
     Button btnAutoSave;
     EditText editTboxAutoNum;
 
+    SQLiteDatabase sqlDB;
+    myDBHelper myDBHelper;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,9 @@ public class AutoNumActive extends AppCompatActivity {
 
         int max_num_value = 45;
         int min_num_value = 1;
+
+        myDBHelper = new myDBHelper(this);
+
 
         btnAutoCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +74,18 @@ public class AutoNumActive extends AppCompatActivity {
         });
 
         btnAutoSave.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
             @Override
             public void onClick(View v) {
+                String[] token = editTboxAutoNum.getText().toString().split("\r\n");
 
+                sqlDB = myDBHelper.getWritableDatabase();
+                for(int i =0; i<token.length-1; i++){
+                    sqlDB.execSQL("INSERT INTO LOTTO VALUES ('"+token[i]+"');");
+                }
+                sqlDB.close();
+
+                Toast.makeText(getApplicationContext(),"Succes Save",0).show();
             }
         });
     }
