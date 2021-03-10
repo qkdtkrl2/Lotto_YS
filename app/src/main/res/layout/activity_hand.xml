@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/btnNo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -32,7 +32,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/btnNo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -40,7 +40,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/btnNo3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,7 +48,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button19"
+                android:id="@+id/btnNo4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -56,7 +56,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button20"
+                android:id="@+id/btnNo5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -71,7 +71,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button23"
+                android:id="@+id/btnNo6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -79,7 +79,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button24"
+                android:id="@+id/btnNo7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button25"
+                android:id="@+id/btnNo8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -95,7 +95,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button26"
+                android:id="@+id/btnNo9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,7 +103,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button27"
+                android:id="@+id/btnNo10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -117,7 +117,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button28"
+                android:id="@+id/btnNo11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -125,7 +125,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button29"
+                android:id="@+id/btnNo12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -133,7 +133,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button30"
+                android:id="@+id/btnNo13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -141,7 +141,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button31"
+                android:id="@+id/btnNo14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -149,7 +149,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button32"
+                android:id="@+id/btnNo15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -163,7 +163,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button33"
+                android:id="@+id/btnNo16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -171,7 +171,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button34"
+                android:id="@+id/btnNo17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -179,7 +179,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button35"
+                android:id="@+id/btnNo18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -187,7 +187,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button36"
+                android:id="@+id/btnNo19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -195,7 +195,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button37"
+                android:id="@+id/btnNo20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -209,7 +209,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button38"
+                android:id="@+id/btnNo21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -217,7 +217,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button41"
+                android:id="@+id/btnNo22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -225,7 +225,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button42"
+                android:id="@+id/btnNo23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -233,7 +233,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button40"
+                android:id="@+id/btnNo24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -241,7 +241,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button39"
+                android:id="@+id/btnNo25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -255,7 +255,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button43"
+                android:id="@+id/btnNo26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -263,7 +263,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button44"
+                android:id="@+id/btnNo27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -271,7 +271,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button45"
+                android:id="@+id/btnNo28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -279,7 +279,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button46"
+                android:id="@+id/btnNo29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -287,7 +287,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button47"
+                android:id="@+id/btnNo30"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -301,7 +301,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button48"
+                android:id="@+id/btnNo31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -309,7 +309,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button49"
+                android:id="@+id/btnNo32"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -317,7 +317,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button50"
+                android:id="@+id/btnNo33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -325,7 +325,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button51"
+                android:id="@+id/btnNo34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -333,7 +333,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button52"
+                android:id="@+id/btnNo35"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -347,7 +347,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button53"
+                android:id="@+id/btnNo36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -355,7 +355,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button56"
+                android:id="@+id/btnNo37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -363,7 +363,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button54"
+                android:id="@+id/btnNo38"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -371,7 +371,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button57"
+                android:id="@+id/btnNo39"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -379,7 +379,7 @@
                 android:layout_margin="5dp"/>
 
             <Button
-                android:id="@+id/button55"
+                android:id="@+id/btnNo40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -393,7 +393,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button58"
+                android:id="@+id/btnNo41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -401,7 +401,7 @@
                 android:text="41" />
 
             <Button
-                android:id="@+id/button59"
+                android:id="@+id/btnNo42"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -409,7 +409,7 @@
                 android:text="42" />
 
             <Button
-                android:id="@+id/button60"
+                android:id="@+id/btnNo43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -417,7 +417,7 @@
                 android:text="43" />
 
             <Button
-                android:id="@+id/button61"
+                android:id="@+id/btnNo44"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -425,7 +425,7 @@
                 android:text="44" />
 
             <Button
-                android:id="@+id/button62"
+                android:id="@+id/btnNo45"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -439,7 +439,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button63"
+                android:id="@+id/brnHandCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
@@ -447,7 +447,7 @@
                 android:layout_margin="20dp"/>
 
             <Button
-                android:id="@+id/button64"
+                android:id="@+id/btnHandSave"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
