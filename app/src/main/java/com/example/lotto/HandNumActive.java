@@ -1,24 +1,29 @@
 package com.example.lotto;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HandNumActive extends AppCompatActivity {
 
     private Button[] btnList = new Button[45];
-    private ArrayList<String> AddnumList;
+    private ArrayList<Integer> AddnumList = new ArrayList<>();
+    private String BonusNum;
 
     int Count = 0;
 
     Button btnHandSave;
     Button btnHandCreate;
+
+    TextView tBoxHandNum;
 
 
     @Override
@@ -76,15 +81,55 @@ public class HandNumActive extends AppCompatActivity {
         btnHandSave = findViewById(R.id.btnHandSave);
         btnHandCreate = findViewById(R.id.brnHandCreate);
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        };
+        tBoxHandNum = findViewById(R.id.tBoxHandNum);
 
+        for(int i = 0; i<btnList.length; i++){
+            btnList[i].setTag(i);
+            btnList[i].setOnClickListener(listener);
+        }
 
     }
 
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button btn = (Button) v;
 
+            for (Button tempBtn : btnList){
+                if(Count == 7){
+                    Collections.sort(AddnumList, new Ascending());
+                    String Nummsg = "";
+
+                    for(int i = 0; i<AddnumList.size(); i++){
+                        Nummsg += AddnumList.get(i).toString() + "\r";
+                    }
+
+                    tBoxHandNum.setText(Nummsg + "+\r" + BonusNum);
+                }else{
+                    if(tempBtn == btn){
+                        int position = (Integer)v.getTag();
+
+                        if(Count == 6){
+                            BonusNum = btnList[position].getText().toString();
+                        }else{
+                            AddnumList.add(Integer.parseInt(btnList[position].getText().toString()));
+                        }
+
+                        btnList[position].setBackgroundColor(000000);
+                        btnList[position].setEnabled(false);
+                        btnList[position].setText("");
+
+                        Count++;
+                    }
+                }
+            }
+        }
+    };
+}
+
+class Ascending implements Comparator<Integer> {
+    public int compare(Integer a, Integer b)
+    {
+        return a.compareTo(b);
+    }
 }

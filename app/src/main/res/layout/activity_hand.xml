@@ -13,10 +13,10 @@
         tools:layout_editor_absoluteY="223dp">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tBoxHandNum"
             android:layout_width="match_parent"
             android:layout_height="51dp"
-            android:text="TextView" />
+            android:text="" />
 
         <LinearLayout
             android:layout_width="match_parent"
