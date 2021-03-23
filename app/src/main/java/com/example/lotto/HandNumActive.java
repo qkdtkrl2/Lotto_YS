@@ -1,5 +1,6 @@
 package com.example.lotto;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,10 @@ public class HandNumActive extends AppCompatActivity {
 
     TextView tBoxHandNum;
 
+    SQLiteDatabase sqlDB;
+    myDBHelper myDBHelper;
+
+    String Nummsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,10 +88,25 @@ public class HandNumActive extends AppCompatActivity {
 
         tBoxHandNum = findViewById(R.id.tBoxHandNum);
 
+        myDBHelper = new myDBHelper(this);
+
         for(int i = 0; i<btnList.length; i++){
             btnList[i].setTag(i);
             btnList[i].setOnClickListener(listener);
         }
+
+        btnHandSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(Nummsg != ""){
+                    sqlDB = myDBHelper.getWritableDatabase();
+
+                    sqlDB.execSQL("INSERT INTO LOTTO VALUES (Nummsg);");
+                    sqlDB.close();
+                }
+            }
+        });
 
     }
 
@@ -98,7 +118,7 @@ public class HandNumActive extends AppCompatActivity {
             for (Button tempBtn : btnList){
                 if(Count == 7){
                     Collections.sort(AddnumList, new Ascending());
-                    String Nummsg = "";
+
 
                     for(int i = 0; i<AddnumList.size(); i++){
                         Nummsg += AddnumList.get(i).toString() + "\r";
