@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnCreateNum;
     Button btnMap;
 
-    Integer lotto_count = 940;
+    Integer lotto_count = 950;
+    Integer lotto_real_count;
+    Integer flag = 0;
 
     String str, receiveMsg;
 
@@ -136,28 +138,46 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Integer... params) {
             URL url = null;
             try {
-                url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + lotto_count.toString());
+                while(true){
+                    if(flag.equals(0)){
+                        url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + lotto_count.toString());
+                    }else{
+                        url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + lotto_real_count.toString());
+                    }
 
-                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                    HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 
-                InputStreamReader tmp = new InputStreamReader(conn.getInputStream(), "UTF-8");
-                BufferedReader reader = new BufferedReader(tmp);
-                StringBuffer buffer = new StringBuffer();
-                while ((str = reader.readLine()) != null) {
-                    buffer.append(str);
+                    InputStreamReader tmp = new InputStreamReader(conn.getInputStream(), "UTF-8");
+                    BufferedReader reader = new BufferedReader(tmp);
+                    StringBuffer buffer = new StringBuffer();
+                    while ((str = reader.readLine()) != null) {
+                        buffer.append(str);
+                    }
+                    receiveMsg = buffer.toString();
+
+                    JsonObject jsonObject = (JsonObject) JsonParser.parseString(receiveMsg);
+
+                    if(jsonObject.get("returnValue").toString().equals("\"success\"") && flag.equals(0)){
+                        lotto_count++;
+                    }else{
+                        if(jsonObject.get("returnValue").toString().equals("\"fail\"")){
+                            lotto_real_count = lotto_count-1;
+                            flag = 1;
+                        }else if(jsonObject.get("returnValue").toString().equals("\"success\"") && flag.equals(1)){
+                            textDate.setText(jsonObject.get("drwNoDate").toString());
+                            String num = jsonObject.get("drwtNo1").toString() + "," + jsonObject.get("drwtNo2").toString() + "," + jsonObject.get("drwtNo3").toString()
+                                    + "," + jsonObject.get("drwtNo4").toString() + "," + jsonObject.get("drwtNo5").toString() + "," + jsonObject.get("drwtNo6").toString()
+                                    + "+" + jsonObject.get("bnusNo").toString();
+
+                            textNum.setText(num);
+                            reader.close();
+                            break;
+                        }else{
+                            flag = 0;
+                        }
+                    }
+                    reader.close();
                 }
-                receiveMsg = buffer.toString();
-
-                JsonObject jsonObject = (JsonObject) JsonParser.parseString(receiveMsg);
-
-                textDate.setText(jsonObject.get("drwNoDate").toString());
-                String num = jsonObject.get("drwtNo1").toString() + "," + jsonObject.get("drwtNo2").toString() + "," + jsonObject.get("drwtNo3").toString()
-                        + "," + jsonObject.get("drwtNo4").toString() + "," + jsonObject.get("drwtNo5").toString() + "," + jsonObject.get("drwtNo6").toString()
-                        + "+" + jsonObject.get("bnusNo").toString();
-
-                textNum.setText(num);
-
-                reader.close();
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();

@@ -29,7 +29,7 @@ public class HandNumActive extends AppCompatActivity {
     SQLiteDatabase sqlDB;
     myDBHelper myDBHelper;
 
-    String Nummsg;
+    String Nummsg = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,10 +99,10 @@ public class HandNumActive extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(Nummsg != ""){
+                if(tBoxHandNum.getText() != ""){
                     sqlDB = myDBHelper.getWritableDatabase();
 
-                    sqlDB.execSQL("INSERT INTO LOTTO VALUES (Nummsg);");
+                    sqlDB.execSQL("INSERT INTO LOTTO VALUES ('"+tBoxHandNum.getText()+"');");
                     sqlDB.close();
                 }
             }
@@ -124,22 +124,28 @@ public class HandNumActive extends AppCompatActivity {
                         Nummsg += AddnumList.get(i).toString() + "\r";
                     }
 
-                    tBoxHandNum.setText(Nummsg + "+\r" + BonusNum);
+                    tBoxHandNum.setText(Nummsg.trim() + "+\r" + BonusNum);
+                    Count++;
+                    break;
                 }else{
-                    if(tempBtn == btn){
-                        int position = (Integer)v.getTag();
+                    if(Count > 7){
+                        break;
+                    }else{
+                        if(tempBtn == btn){
+                            int position = (Integer)v.getTag();
 
-                        if(Count == 6){
-                            BonusNum = btnList[position].getText().toString();
-                        }else{
-                            AddnumList.add(Integer.parseInt(btnList[position].getText().toString()));
+                            if(Count == 6){
+                                BonusNum = btnList[position].getText().toString();
+                            }else{
+                                AddnumList.add(Integer.parseInt(btnList[position].getText().toString()));
+                            }
+
+                            btnList[position].setBackgroundColor(000000);
+                            btnList[position].setEnabled(false);
+                            btnList[position].setText("");
+
+                            Count++;
                         }
-
-                        btnList[position].setBackgroundColor(000000);
-                        btnList[position].setEnabled(false);
-                        btnList[position].setText("");
-
-                        Count++;
                     }
                 }
             }
