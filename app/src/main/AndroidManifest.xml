@@ -17,6 +17,8 @@
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true">
 
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBXqURTIkoc7vbesn920WgF6huqdvCAHH0"/>
 
         <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
